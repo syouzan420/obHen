@@ -501,12 +501,12 @@ PCRでは 何も教へてはくれんのぢゃ。
 
 textT6:
 ;sc_4
-それはさうと この装置は PCRを利用して 特定のRNAを増幅させ わしの開發した遺傳子操作を施すことによって 何らかのワクチンによって 遺傳子を操作され 危険にさらされる可能性のある生命に投与する 新たな種類のワクチンを製造するものぢゃ・・・。
+それはさうと この装置は PCRを利用して 特定のRNAを$r増幅-ぞうふく させ わしの$r開發-かいはつ した遺傳子操作を施すことによって 何らかのワクチンによって 遺傳子を操作され 危険にさらされる可能性のある生命に$r投与-とうよ する 新たな種類のワクチンを製造するものぢゃ・・・。
 ・・・まうすこし わかりやすく言へば。
 變なワクチンを打たれてゾンビ化した人間を元に戻せるワクチンをつくる装置 といふことぢゃ。
 これに必要な材料は 何らかのRNA ひとかたまりのみぢゃ。
 画期的ぢゃらう。
-まあ ろくに臨床實驗もされず 細胞に自己増殖を促し 生命を蝕む とんでもないワクチンが打たれなければ それに越したことはないのぢゃが・・・。
+まあ ろくに$r臨床-りんしゃう $r實驗-じっけん もされず 細胞に自己増殖を促し 生命を蝕む とんでもないワクチンが打たれなければ それに越したことはないのぢゃが・・・。
 ・・・むむ・・・何か 外が騒がしいぞ・・・？。
 ;d_block.Yoko d_block.Anna d_attack.virus1 d_attack.virus2 uo_0.Yoko.move-5,,block,north uo_0.Anna.move-6,,block,north uo_0.virus1.shoot-7,,block,north uo_0.virus2.shoot-6,,block,north uo_0.virus3.shoot-5,,block,north a_block.Yoko.0_if_?pHave.xVaccine_md.textY6_el_md.textY5 a_block.Anna.0_if_?pHave.xVaccine_md.textA17_el_md.textA16 a_block.Tana.0_md_textT7 a_attack.virus1.1_md_textV13 a_attack.virus2.1_md_textV23 a_attack.virus3.1_md_textV32 a_leave_sl a_nolife_md_textNLF
 
@@ -516,7 +516,7 @@ textT7:
 
 textT8:
 ;sc_4
-どうやら 直接 やつらを叩くしかないやうじゃ・・・。
+どうやら 直接 やつらを$r叩-たた くしかないやうじゃ・・・。
 Ｚバスターが完成するまではな・・・。
 ;d_block.Tana a_block.Tana.0_md_textT9 a_nolife_md_textNLF
 
@@ -533,7 +533,7 @@ textT10:
 
 textT11:
 ;sc_4
-Ｚバスターなら 奴を倒せる！。
+Ｚバスターなら $r奴-やつ を倒せる！。
 
 textNLF:
 ・・・めまいがする・・・。
@@ -601,8 +601,8 @@ textZ6:
 ;sc_7
 ・・・あれ・・・。
 ・・・いったい・・ぼくは・・・？。
-さうか・・・ぼくも あの實驗で・・・。
-大變なことをしてしまった・・・。
+さうか・・・ぼくも あの$r實驗-じっけん で・・・。
+$r大變-たいへん なことをしてしまった・・・。
 ぼくには 生きてゐる資格がない・・・。
 ;sc_2
 待って！
