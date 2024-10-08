@@ -8,8 +8,9 @@ import qualified JSDOM.Generated.NonElementParentNode as DOM
 import qualified JSDOM.Generated.Element as DOM
 import JSDOM.Generated.Storage (getItem, removeItem, setItem)
 import JSDOM.Types (FromJSString, Storage, ToJSString, JSM, liftJSM)
-import JSDOM.Generated.Window (getLocalStorage,getNavigator)
+import JSDOM.Generated.Window (getLocalStorage,getNavigator,getEvent)
 import JSDOM.Generated.Navigator (vibrate_)
+import JSDOM.Generated.Event (preventDefault)
 
 import Control.Monad.IO.Class (liftIO,MonadIO)
 import Control.Monad.Fix (MonadFix)
@@ -222,7 +223,9 @@ elTextScroll = prerender_ blank $ do
 elVibration :: (DomBuilder t m, Prerender t m) => m ()
 elVibration = prerender_ blank $ do
   win <- currentWindowUnchecked
+  ev <- getEvent win
   nav <- getNavigator win
+  preventDefault ev
   vibrate_ nav 150
   
 getLocalStorageUnchecked :: JSM Storage
