@@ -1,6 +1,6 @@
 module CWidget (dyChara, imgsrc, elSpace, evElButton, evElButtonH, mkHidden
                , evElNumberPad, dyElTimer, dyElCharaAnime, elTextScroll,elRandom
-               ,saveState, loadState, clear, elImage0) where
+               ,saveState, loadState, clear, elImage0, elVibration) where
 
 import JSDOM
 --import qualified JSDOM.Generated.Document as DOM
@@ -8,7 +8,8 @@ import qualified JSDOM.Generated.NonElementParentNode as DOM
 import qualified JSDOM.Generated.Element as DOM
 import JSDOM.Generated.Storage (getItem, removeItem, setItem)
 import JSDOM.Types (FromJSString, Storage, ToJSString, JSM, liftJSM)
-import JSDOM.Generated.Window (getLocalStorage)
+import JSDOM.Generated.Window (getLocalStorage,getNavigator)
+import JSDOM.Generated.Navigator (vibrate_)
 
 import Control.Monad.IO.Class (liftIO,MonadIO)
 import Control.Monad.Fix (MonadFix)
@@ -68,7 +69,7 @@ data StColor = Black | Red | Blue | Yellow deriving stock (Eq, Show)
 elSText :: (PostBuild t m, DomBuilder t m) => Dynamic t T.Text -> m () 
 elSText dyTx = do 
   let dySL = fmap makeStyleList dyTx
-  fmap (\st -> (mapM_ elStyleText st)) dySL
+
 
 elStyleText :: DomBuilder t m => (Style, T.Text) -> m ()
 elStyleText (st,tx) = do
@@ -90,7 +91,8 @@ elStyleText (st,tx) = do
                          [_,txt] -> txt
                          _ -> tx
   elAttr "div" attr $ text t 
-{--
+
+
 elStyleText :: DomBuilder t m => Dynamic t (Style, T.Text) -> m ()
 elStyleText dst = do
   let attr = fmap (\(st,tx) -> case st of
@@ -113,7 +115,8 @@ elStyleText dst = do
                          _ -> tx
                ) dst
   elDynAttr "div" attr $ dynText t 
---}
+
+
 
 makeStyleList :: T.Text -> [(Style, T.Text)]
 makeStyleList tx =
@@ -135,6 +138,7 @@ makeStyle tx =
           _ -> Plane
                   
 --}
+
 
 dyElTimer :: 
   ( DomBuilder t m
@@ -214,6 +218,12 @@ elTextScroll = prerender_ blank $ do
   case scrollText of
     Just scrT -> DOM.scrollBy scrT (-20) 0 
     Nothing -> return ()
+  
+elVibration :: (DomBuilder t m, Prerender t m) => m ()
+elVibration = prerender_ blank $ do
+  win <- currentWindowUnchecked
+  nav <- getNavigator win
+  vibrate_ nav 50
   
 getLocalStorageUnchecked :: JSM Storage
 getLocalStorageUnchecked = currentWindowUnchecked >>= getLocalStorage

@@ -90,9 +90,9 @@ b,ZBuster,tool,,get,nodir
 scene0:
 君が今までゐた世界とは ずいぶん違って見えるかな。
 ・・・今 君の力が必要なんだ。
-ある時から ここには 變化といふものが なくなってしまった。
+ある時から ここには $r變化-へんか といふものが なくなってしまった。
 それに どんな意味があるのか。
-まづ この世界を歩いて 自分の目と感覺で 確かめて欲しい。
+まづ この世界を歩いて 自分の目と$r感覺-かんかく で 確かめて欲しい。
 ;a_block.Yoko.0_if_?pHave.Super_md.textYs_if_?pHave.Glasses_md.textYg_if_?pHave.SuperG_md.textYG_if_?pHave.Mask_md.textYM0_el_md.textY0 a_pushto.Box-Yoko.0_md_textYB a_attack.Box.3_co_Box-Mask a_block.Super.0_md_texts0 a_block.Glasses.0_md_textg0 a_block.SuperG.0_md_textG0 a_block.Conbiner.0_md_textC0
 
 textSave:

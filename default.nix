@@ -31,8 +31,8 @@ project ./. ({ pkgs, ... }: {
       src = ./assets/chara.png;
     };
     version = {
-      code = "1";
-      name = "0.2";
+      code = "4";
+      name = "0.4";
     };
   };
   ios.bundleIdentifier = "org.yokop.hen";
