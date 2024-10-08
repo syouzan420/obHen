@@ -223,7 +223,7 @@ elVibration :: (DomBuilder t m, Prerender t m) => m ()
 elVibration = prerender_ blank $ do
   win <- currentWindowUnchecked
   nav <- getNavigator win
-  vibrate_ nav 50
+  vibrate_ nav 150
   
 getLocalStorageUnchecked :: JSM Storage
 getLocalStorageUnchecked = currentWindowUnchecked >>= getLocalStorage
