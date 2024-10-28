@@ -19,7 +19,7 @@ import Reflex.Dom.Core
   )
 
 import CWidget (dyChara,imgsrc,elSpace,evElButton,evElButtonH,elTextScroll
-               ,saveState,loadState,mkHidden,elImage0,elVibration)
+               ,saveState,loadState,mkHidden,elImage0)
 
 import Define
 import Initialize (newGame)
@@ -53,7 +53,6 @@ wakaMain gs = do
     let evTxTime = gate beTxtOn evTime
     let evWTick = WTick <$ evTime
     let evWk = leftmost (evBtList<>[evWTick])
-    let evBt = leftmost evBtList 
     let evSave = gate beIsSave evWTick 
     let evLSave = gate beIsLSave evWTick
     dyGs <- accumDyn wakaUpdate gs evWk
@@ -87,14 +86,12 @@ wakaMain gs = do
 --    let dyTxs = _txs <$> dyGs
 --    dynText (T.pack . show <$> dyObjectMap)
     divClass "tbox" $  
---      elAttr "div" ("id" =: "wkText" <> "class" =: "tate") $ 
       prerender_ blank $ void $ 
             elDynHtmlAttr' "div" ("id"=: "wkText" <> "class" =: "tate") dyVText
-        -- (dynText dyVText)
     elSpace  
     evBtList <- evWkButtons
     divClass "lnk" $ elDynAttr "a" dyAtr $ dynText dyLnt
-    widgetHold_ blank (elVibration <$ evBt)
+--    widgetHold_ blank (elVibration <$ evBt)
     widgetHold_ blank (elTextScroll <$ evTxTime)
     widgetHold_ blank (saveGame dyGs <$ evSave)
     widgetHold_ blank (lastSave dyGs <$ evLSave)
